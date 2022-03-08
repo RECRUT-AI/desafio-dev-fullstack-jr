@@ -1,19 +1,49 @@
- ![RECRUT.AI](https://recrut.ai/assets/img/RECRUT.AI.png)
+# Petshop 
+<div style="display: flex;">
+<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/> 
+<img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge"/> 
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/> 
+<img src="https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white"/> 
+<img src="https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white"/> 
+</div>
+  
 
-# Desafio - Desenvolvedor Fullstack Júnior
-Seja bem-vindo(a)! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato à vaga de Desenvolvedor Fullstack Júnior.
+<img src="assets/create_animal.gif" width="750" height="300"/>
+> Inserindo/criando um animal.
+<img src="assets/delete_animal.gif" width="750" height="300"/>
+> Deletando animal da lista e banco de dados.
+<img src="assets/view_animal.gif" width="750" height="300"/>
+> Card que contém todas as informações do animal, inclusive seu ID único.
+<img src="assets/up_animal.gif" width="750" height="300"/>
+> Update nas informações dos animais e tutores.
 
-## Instruções do Desafio
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: HTML, CSS e JavaScript no front-end e alguma das tecnologias back-end informadas na proposta desse desafio;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
+### Ajustes e melhorias
 
-## Proposta
-Você deverá desenvolver um projeto no padrão MVC utilizando Node.js com a finalidade de que seja possível listar, visualizar, criar, editar e excluir animais de estimação de uma petshop.
-> **Observações:**
-> - Você pode utilizar a estratégia que considerar pertinente para armazenar os registros de sua aplicação;
-> - Cada animal de estimação precisa ter um identificador único, nome, idade, se é gato ou cachorro e sua respectiva raça; Além do nome e telefone para contato de seu dono.
+O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
-## Diferenciais
-Serão considerados diferenciais o uso de qualquer tipo de framework utilizados no front-end (utilizamos ReactJS por aqui) ou no back-end da aplicação.
+- [ ] Correção do formato da data de nascimento (campo de update). No formato atual, o update é realizado quando a data é inserida no formato aaaa-mm-dd
+- [ ] Obter a idade á partir da data de nascimento
+- [ ] Aplicação Redux
+
+## 💻 Pré-requisitos
+
+Antes de começar, verifique se você atendeu aos seguintes requisitos:
+<!---Estes são apenas requisitos de exemplo. Adicionar, duplicar ou remover conforme necessário--->
+* Você instalou a versão 8.0 do mysql
+* Você instalou o nodemon para rodar o servidor
+
+Detalhes: 
+* Este projeto foi criado no SO linux 20.4.
+
+## 🚀 Passo a passo
+
+Para rodar a aplicação, siga estas etapas:
+
+* Faça um clone deste repositório;
+* Entre no diretório server da aplicação;
+* Execute o server da aplicação utilizando: nodemon index.js
+* Após o servidor rodar na porta localhost:5000, vá até o diretório client;
+* Dentro do diretório client, inicie o frontend através do comando: npm start 
+  
+
+[⬆ Voltar ao topo](#petshop)<br>
