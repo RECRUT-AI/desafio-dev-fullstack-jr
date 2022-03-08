@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
-// import { toast } from "react-toastify";
 import axios from "axios";
 import { toast } from "react-toastify";
 
@@ -27,21 +26,21 @@ const Home = () => {
 
   return (
     <div style={{ marginTop: "150px" }}>
-      <Link to="/addContact">
-        <button className="btn btn-contact">Add animal</button>
+      <Link to="/addAnimal">
+        <button className="btn btn-add">Adicionar animal</button>
       </Link>
       <table className="styled-table">
         <thead>
           <tr>
-            <th style={{ textAlign: "center" }}> No.</th>
-            <th style={{ textAlign: "center" }}> Name.</th>
-            <th style={{ textAlign: "center" }}> Nascimento.</th>
-            <th style={{ textAlign: "center" }}> Tipo.</th>
-            <th style={{ textAlign: "center" }}> Raça.</th>
-            <th style={{ textAlign: "center" }}> Sexo.</th>
+            <th style={{ textAlign: "center" }}> id</th>
+            <th style={{ textAlign: "center" }}> Nome</th>
+            <th style={{ textAlign: "center" }}> Nascimento</th>
+            <th style={{ textAlign: "center" }}> Tipo</th>
+            <th style={{ textAlign: "center" }}> Raça</th>
+            <th style={{ textAlign: "center" }}> Sexo</th>
             <th style={{ textAlign: "center" }}> Nome do Tutor</th>
             <th style={{ textAlign: "center" }}> Contato</th>
-            <th style={{ textAlign: "center" }}> Action</th>
+            <th style={{ textAlign: "center" }}> </th>
           </tr>
         </thead>
         <tbody>

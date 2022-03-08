@@ -20,23 +20,43 @@ const View = () => {
           <p>Detalhes do animal</p>
         </div>
         <div className="container">
-            <strong>ID:</strong>
+            <strong>Id único: </strong>
             <span>{id}</span>
             <br/>
             <br/>
 
-            <strong>Nome:</strong>
+            <strong>Nome: </strong>
             <span>{user.nome}</span>
             <br/>
             <br/>
 
-            <strong>Nascimento</strong>
+            <strong>Nascimento: </strong>
             <span>{user.nascimento}</span>
             <br/>
             <br/>
 
-            <strong>Tipo</strong>
+            <strong>Tipo: </strong>
             <span>{user.tipo}</span>
+            <br/>
+            <br/>
+
+            <strong>Raça: </strong>
+            <span>{user.raca}</span>
+            <br/>
+            <br/>
+
+            <strong>Sexo: </strong>
+            <span>{user.sexo}</span>
+            <br/>
+            <br/>
+
+            <strong>Nome do tutor: </strong>
+            <span>{user.nome_tutor}</span>
+            <br/>
+            <br/>
+
+            <strong>Telefone: </strong>
+            <span>{user.phone}</span>
             <br/>
             <br/>
             <Link to="/">

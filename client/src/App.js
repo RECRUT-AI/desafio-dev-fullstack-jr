@@ -13,7 +13,7 @@ function App() {
         <ToastContainer position="top-center" />
         <Routes>
           <Route path="/" element={<Home/>} />
-          <Route path="/addContact" element={<AddEdit/>} />
+          <Route path="/addAnimal" element={<AddEdit/>} />
           <Route path="/update/:id" element={<AddEdit/>} />
           <Route path="/view/:id" element={<View/>} />
         </Routes>
