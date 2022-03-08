@@ -32,7 +32,7 @@ const Home = () => {
       <table className="styled-table">
         <thead>
           <tr>
-            <th style={{ textAlign: "center" }}> id</th>
+            <th style={{ textAlign: "center" }}> N.</th>
             <th style={{ textAlign: "center" }}> Nome</th>
             <th style={{ textAlign: "center" }}> Nascimento</th>
             <th style={{ textAlign: "center" }}> Tipo</th>
