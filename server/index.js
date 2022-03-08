@@ -39,15 +39,43 @@ app.post("/api/post", (req, res) => {
   );
 });
 
-// app.get("/", (req, res) => {
-//   const sqlInsert = "INSERT INTO petshop_db (nome, nascimento, tipo, raca, sexo, nome_tutor, phone) VALUES ('Sury', '2011-03-10', 'Gato', 'SRD', 'F', 'Andressa', '3598512240' )";
-//   db.query(sqlInsert, (error, result) => {
-//     console.log("error", error);
-//     console.log("result", result);
-//     res.send("hello express");
-//   });
-// });
+//delete
+app.delete("/api/remove/:id", (req, res) => {
+  const { id } = req.params;
+  const sqlRemove = "DELETE from petshop_db WHERE id = ?";
+  db.query(sqlRemove, id, (error, result) => {
+    if (error) {
+      console.log(error);
+    }
+  });
+});
 
+//update
+app.get("/api/get/:id", (req, res) => {
+  const {id} = req.params;
+  const slqGet = "SELECT * FROM petshop_db WHERE id = ?";
+  db.query(slqGet, id, (error, result) => {
+    if (error){
+      console.log(error);
+    }
+    res.send(result);
+  });
+});
+
+app.put("/api/update/:id", (req, res) => {
+  const {id} = req.params;
+  const { nome, nascimento, tipo, raca, sexo, nome_tutor, phone} = req.body;
+  const slqUpdate = "UPDATE petshop_db SET nome = ?, nascimento = ?, tipo = ?, raca = ?, sexo = ?, nome_tutor = ?, phone = ? WHERE id = ?";
+  db.query(slqUpdate,
+     [nome, nascimento, tipo, raca, sexo, nome_tutor, phone, id],  (error, result) => {
+    if (error){
+      console.log(error);
+    }
+    res.send(result);
+  });
+});
+
+//port
 app.listen(5000, () => {
   console.log("Server is running on port 5000");
 });
