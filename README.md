@@ -1,4 +1,4 @@
- ![RECRUT.AI](https://recrut.ai/assets/img/RECRUT.AI.png)
+ ![RECRUT.AI](https://recrut.ai/wp-content/uploads/2022/02/logo_recrutai.png)
 
 # Desafio - Desenvolvedor Fullstack Júnior
 Seja bem-vindo(a)! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato à vaga de Desenvolvedor Fullstack Júnior.
