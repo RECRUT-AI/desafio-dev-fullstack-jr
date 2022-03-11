@@ -3,11 +3,12 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
-import Link from 'next/link'
+import Link from 'next/link';
+import styles from './LandingPageCard.module.scss';
 
 const LandingPageCard = ({ title, text, subText, href}) => {
   return (
-    <Card sx={{ minWidth: 275 }} className='LandingPageCard'>
+    <Card sx={{ minWidth: 275 }} className={styles.LandingPageCard}>
       <CardActionArea>
         <Link href={href || '/'} passHref>
           <CardContent>

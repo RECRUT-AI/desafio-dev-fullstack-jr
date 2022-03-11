@@ -3,6 +3,7 @@ import { Row, Col } from 'react-bootstrap';
 import { TextField, Button, Alert, InputLabel, MenuItem, FormControl, Select } from '@mui/material';
 import handlers from '../../utils/handlers';
 import Loading from '../Loading/Loading';
+import styles from './Form.module.scss';
 
 const Form = () => {
   const [name, setName] = useState('');
@@ -97,7 +98,7 @@ const Form = () => {
             value={age}
             onChange={handleAgeChange}
           />
-          <FormControl fullWidth className='form'>
+          <FormControl fullWidth className={styles.form}>
             <InputLabel id="simple-select-label">Tipo</InputLabel>
             <Select
               labelId="simple-select-label"

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import handlers from '../../utils/handlers';
 import ClientCard from '../ClientCard/ClientCard';
 import { Row } from 'react-bootstrap';
+import Loading from '../Loading/Loading';
 
 const Clientsdisplay = () => {
   const [pets, setPets] = useState(null);
@@ -22,7 +23,7 @@ const Clientsdisplay = () => {
       {pets && pets.map(pet => {
         return <ClientCard client={pet} key={pet?.id} />
       })}
-      {loading && <p>Loading...</p>}
+      {loading && <Loading />}
     </Row>
   );
 };
