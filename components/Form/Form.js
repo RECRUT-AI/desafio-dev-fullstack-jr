@@ -79,6 +79,11 @@ const Form = () => {
 
   }, [response]);
 
+  const styles = {
+    marginTop: '16px',
+    marginBottom: '8px'
+  }
+
   return (
     <>
       <Row>
@@ -98,7 +103,7 @@ const Form = () => {
             value={age}
             onChange={handleAgeChange}
           />
-          <FormControl fullWidth className={styles.form} styles={{marginTop: '16px', marginBottom: '8px'}}>
+          <FormControl fullWidth className={styles.form} style={styles}>
             <InputLabel id="simple-select-label">Tipo</InputLabel>
             <Select
               labelId="simple-select-label"
