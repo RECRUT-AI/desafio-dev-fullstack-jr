@@ -1,0 +1,84 @@
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+// Color palette
+$main: #243c5a;
+$secondary: #3f709b;
+$aux1: #dee8d7;
+$aux2: #fbd688;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+.html {
+  // html document ocupies 100% of screen
+  height: 100vh;
+  width: 100%;
+}
+
+.body {
+  // body ocupies 100% of screen 
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  left: 0;
+
+  //styling
+  background-color: $main;
+}
+
+#__next {
+  // main next div ocupies 100% of screen
+  height: 100vh;
+  width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// INDEX PAGE
+.mainContent {
+  background-color: $aux2;
+  position: fixed;
+}
+
+// --card
+.LandingPageCard {
+  max-width: 200px;
+  background-color: $aux1;
+}
+
+// --form 
+.form {
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+// --loading
+.loading { 
+  position: absolute;
+  top: 50%;
+  left: 35%;
+}
+
+// --back button
+.button--back {
+  position: absolute;
+  left: 0;
+  margin-left: 5%;
+}
