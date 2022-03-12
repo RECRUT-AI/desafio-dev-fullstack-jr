@@ -19,8 +19,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 This project is my solution for the Fullstack developed challenge of RECRUT.AI. The requirements were flexible and I was able to choose the most comftable way to do it.
 The backend is an Express.JS API connected to the supabase backend. The frontend is a NEXT.JS React application using react-bootstrap and MaterialUI.
 The app itself is simple. Three possible pages: The Landing page directing the user for the possible operations; The registering page to add new clients to the DB (create);
