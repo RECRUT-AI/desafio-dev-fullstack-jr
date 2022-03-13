@@ -3,7 +3,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://desafio-dev-fullstack-jr.vercel.app/">
     <img src="https://img.icons8.com/ios-filled/50/000000/pinguin.png" alt="Logo" width="80" height="80">
   </a>
 
