@@ -4,8 +4,9 @@ export const Container = styled.div`
   max-width: 480px;
   margin: 0 auto;
   padding: 2rem;
-  background: #ddd;
+  background: #fff;
   border-radius: 5px;
+  box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.2);
 
   label {
     line-height: 2;
@@ -50,5 +51,9 @@ export const Container = styled.div`
     :hover {
       background: rgba(255, 255, 255, 0.3);
     }
+  }
+
+  h2 {
+    font-family: "Playfair Display";
   }
 `;

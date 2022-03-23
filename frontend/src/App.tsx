@@ -8,12 +8,13 @@ import GlobalStyles from "./styles/global";
 import { toast, ToastContainer } from "react-toastify";
 import PetCard from "./components/PetCard";
 import { api } from "./services/api";
+import Header from "./components/Header";
 
 function App() {
   const [show, setShow] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
-  const [petId, setPetId] = useState(0);
   const [isDetail, setIsDetail] = useState(false);
+  const [petId, setPetId] = useState(0);
   const [updatePets, setUpdatePets] = useState(false);
 
   const showModal = () => {
@@ -52,21 +53,32 @@ function App() {
   const deleteItem = async (petId: number) => {
     api
       .delete(`pets/${petId}`)
-      .then((response) => toast.success("Pet deletado com sucesso"))
-      .catch((response) => toast.error("Erro ao deletar o pet."));
+      .then((response) =>
+        toast.success("Pet deletado com sucesso", {
+          position: toast.POSITION.TOP_CENTER,
+        })
+      )
+      .catch((response) =>
+        toast.error("Erro ao deletar o pet.", {
+          position: toast.POSITION.TOP_CENTER,
+        })
+      );
+
     setUpdatePets(!updatePets);
+    console.log("atualizou");
   };
 
   return (
     <>
       <GlobalStyles />
+      <Header />
+      <ToastContainer />
       <PetsList
         update={updatePets}
         startEditing={startEditing}
         openDetail={openDetail}
         deleteItem={deleteItem}
       />
-      <ToastContainer />
 
       <Modal show={show} handleClose={hideModal}>
         {!isEditing && !isDetail && <AddPetForm handleClose={hideModal} />}

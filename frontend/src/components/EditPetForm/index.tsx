@@ -28,8 +28,16 @@ const EditPetForm = ({
     handleClose();
     api
       .patch(`pets/${pet_id}`, data)
-      .then((response) => toast.success("Pet editado com sucesso"))
-      .catch((response) => toast.error("Erro na edição."));
+      .then((response) =>
+        toast.success("Pet editado com sucesso", {
+          position: toast.POSITION.TOP_CENTER,
+        })
+      )
+      .catch((response) =>
+        toast.error("Erro na edição.", {
+          position: toast.POSITION.TOP_CENTER,
+        })
+      );
   });
 
   return (

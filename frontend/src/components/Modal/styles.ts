@@ -14,7 +14,7 @@ export const Container = styled.div<ContainerProps>`
 
   .modal-main {
     position: relative;
-    background: white;
+    background: #016fb9;
     width: 30%;
     height: auto;
     top: 50%;

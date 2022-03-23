@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   margin-bottom: 1rem;
 
   .title {
@@ -12,12 +12,8 @@ export const Container = styled.div`
   }
 `;
 
-export const ContentRow = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
 export const ContentItem = styled.div`
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 0.5rem;
@@ -29,23 +25,30 @@ export const ContentItem = styled.div`
     text-decoration: none;
     color: #616267;
     background: none;
-    border: 1px solid #aaa;
+    border: none;
     border-radius: 10px;
 
     margin-bottom: 0.2rem;
 
     transition: all 0.2s ease-in-out;
+
+    box-shadow: 2px 1px 1px 1px rgba(0, 0, 0, 0.3);
+  }
+
+  .delete {
+    background: rgba(255, 100, 100, 0.8);
+    color: #fff;
   }
 
   .edit:hover {
-    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
   }
 
   .delete:hover {
-    background: rgba(255, 30, 30, 0.2);
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
   }
 
   .details:hover {
-    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
   }
 `;

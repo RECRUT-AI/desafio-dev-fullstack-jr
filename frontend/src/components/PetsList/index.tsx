@@ -33,11 +33,14 @@ const PetsList = ({
 
   useEffect(() => {
     async function loadPets() {
-      console.log("response.data");
-      api.get("pets").then((response) => {
-        console.log("response.data");
-        setPets(response.data);
-      });
+      api
+        .get("pets")
+        .then((response) => {
+          setPets(response.data);
+        })
+        .catch((response) => {
+          setPets([]);
+        });
     }
 
     loadPets();
@@ -45,8 +48,7 @@ const PetsList = ({
 
   return (
     <Container>
-      <h1>Lista de Pets</h1>
-      {pets && (
+      {pets.length > 0 ? (
         <Content>
           {pets.map((pet) => {
             return (
@@ -62,6 +64,8 @@ const PetsList = ({
             );
           })}
         </Content>
+      ) : (
+        <h1>Nenhum pet cadastrado.</h1>
       )}
     </Container>
   );

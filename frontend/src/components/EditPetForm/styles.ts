@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const Container = styled.div`
   max-width: 480px;
   padding: 2rem;
-  background: #ddd;
-
+  background: #fff;
+  box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
 
   margin: 0 auto;
@@ -52,5 +52,9 @@ export const Container = styled.div`
     :hover {
       background: rgba(255, 255, 255, 0.3);
     }
+  }
+
+  h2 {
+    font-family: "Playfair Display";
   }
 `;

@@ -24,8 +24,16 @@ const AddPetForm = ({ handleClose }: AddPetFormProps) => {
     handleClose();
     api
       .post("pets", data)
-      .then((response) => toast.success("Pet cadastrado com sucesso"))
-      .catch((response) => toast.error("Erro no cadastro."));
+      .then((response) =>
+        toast.success("Pet cadastrado com sucesso", {
+          position: toast.POSITION.TOP_CENTER,
+        })
+      )
+      .catch((response) =>
+        toast.error("Erro no cadastro.", {
+          position: toast.POSITION.TOP_CENTER,
+        })
+      );
   });
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { Container, ContentRow, ContentItem } from "./styles";
+import { Container, ContentItem } from "./styles";
 
 import { Pet } from "../../types";
 
@@ -28,33 +28,29 @@ const PetItem = ({
   };
   return (
     <Container>
-      <ContentRow>
-        <ContentItem>
-          <span className="title">Nome: </span>
-          {pet.name}
-        </ContentItem>
-      </ContentRow>
-      <ContentRow>
-        <ContentItem>
-          <span className="title">Tipo: </span>
-          {pet.type}
-        </ContentItem>
-      </ContentRow>
-      <ContentRow>
-        <ContentItem>
-          <span className="title">Tutor:</span> {pet.tutorName}
-        </ContentItem>
-      </ContentRow>
+      <ContentItem>
+        <span className="title">Nome: </span>
+        {pet.name}
+      </ContentItem>
+
+      <ContentItem>
+        <span className="title">Tipo: </span>
+        {pet.type}
+      </ContentItem>
+
+      <ContentItem>
+        <span className="title">Tutor:</span> {pet.tutorName}
+      </ContentItem>
 
       <ContentItem>
         <button className="edit" onClick={handleEdit}>
           Editar
         </button>
-        <button className="delete" onClick={handleDelete}>
-          Deletar
-        </button>
         <button className="details" onClick={handleDetailView}>
           Detalhes
+        </button>
+        <button className="delete" onClick={handleDelete}>
+          Deletar
         </button>
       </ContentItem>
     </Container>
