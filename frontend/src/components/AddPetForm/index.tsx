@@ -21,19 +21,20 @@ const AddPetForm = ({ handleClose }: AddPetFormProps) => {
 
   // Adicionar toasts para os erros ou successos
   const onSubmit = handleSubmit(async (data) => {
-    handleClose();
     api
       .post("pets", data)
-      .then((response) =>
+      .then((response) => {
         toast.success("Pet cadastrado com sucesso", {
           position: toast.POSITION.TOP_CENTER,
-        })
-      )
-      .catch((response) =>
+        });
+        handleClose();
+      })
+      .catch((response) => {
         toast.error("Erro no cadastro.", {
           position: toast.POSITION.TOP_CENTER,
-        })
-      );
+        });
+        handleClose();
+      });
   });
 
   useEffect(() => {
