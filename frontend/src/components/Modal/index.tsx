@@ -7,14 +7,12 @@ interface ModalProps {
 }
 
 const Modal = ({ handleClose, show, children }: ModalProps) => {
-  const showHideClassName = show ? "modal display-block" : "modal display-none";
-
   return (
     <Container show={show}>
       <section className="modal-main">
         {children}
-        <button type="button" onClick={handleClose}>
-          Close
+        <button type="button" className="btn-close" onClick={handleClose}>
+          X
         </button>
       </section>
     </Container>

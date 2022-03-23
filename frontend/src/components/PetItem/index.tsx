@@ -4,9 +4,13 @@ import { Pet } from "../../types";
 
 interface PetItemProps {
   pet: Pet;
+  startEditing: (pet_id: number) => void;
 }
 
-const PetItem = ({ pet }: PetItemProps) => {
+const PetItem = ({ pet, startEditing }: PetItemProps) => {
+  const handleEdit = () => {
+    startEditing(pet.id);
+  };
   return (
     <Container>
       <ContentRow>
@@ -38,15 +42,11 @@ const PetItem = ({ pet }: PetItemProps) => {
       </ContentRow>
 
       <ContentRow>
-        <a className="edit" href="">
+        <button className="edit" onClick={handleEdit}>
           Editar
-        </a>
-        <a className="delete" href="">
-          Deletar
-        </a>
-        <a className="details" href="">
-          Detalhes
-        </a>
+        </button>
+        <button className="delete">Deletar</button>
+        <button className="details">Detalhes</button>
       </ContentRow>
     </Container>
   );

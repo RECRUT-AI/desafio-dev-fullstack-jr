@@ -16,7 +16,7 @@ export const ContentRow = styled.div`
   display: flex;
   flex-direction: column;
 
-  a {
+  button {
     font-size: 0.8rem;
     padding: 0.3rem 0.5rem;
     text-decoration: none;
@@ -31,15 +31,15 @@ export const ContentRow = styled.div`
   }
 
   .edit:hover {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.2);
   }
 
   .delete:hover {
-    background: rgba(255, 30, 30, 0.3);
+    background: rgba(255, 30, 30, 0.2);
   }
 
   .details:hover {
-    background: rgba(30, 200, 255, 0.3);
+    background: rgba(0, 0, 0, 0.2);
   }
 `;
 

@@ -64,7 +64,7 @@ petRoutes.patch("/:pet_id", (req, res) => {
 
   if (petIndex >= 0) {
     for (let key in newData) {
-      if (pets[petIndex][key]) {
+      if (newData[key]) {
         pets[petIndex][key] = newData[key];
       }
     }

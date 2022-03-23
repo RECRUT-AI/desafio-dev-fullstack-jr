@@ -6,7 +6,12 @@ import { Container, Content } from "./styles";
 
 import { Pet } from "../../types";
 
-const PetsList = () => {
+interface PetsListProps {
+  update: boolean;
+  startEditing: (pet_id: number) => void;
+}
+
+const PetsList = ({ update, startEditing }: PetsListProps) => {
   const [pets, setPets] = useState<Pet[]>([]);
 
   useEffect(() => {
@@ -21,14 +26,34 @@ const PetsList = () => {
     loadPets();
   }, []);
 
+  useEffect(() => {
+    async function loadPets() {
+      console.log("response.data");
+      api.get("pets").then((response) => {
+        console.log("response.data");
+        setPets(response.data);
+      });
+    }
+
+    loadPets();
+  }, [update]);
+
   return (
     <Container>
       <h1>Lista de Pets</h1>
-      <Content>
-        {pets.map((pet) => {
-          return <PetItem key={pet.id} pet={pet}></PetItem>;
-        })}
-      </Content>
+      {pets && (
+        <Content>
+          {pets.map((pet) => {
+            return (
+              <PetItem
+                startEditing={startEditing}
+                key={pet.id}
+                pet={pet}
+              ></PetItem>
+            );
+          })}
+        </Content>
+      )}
     </Container>
   );
 };

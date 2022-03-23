@@ -13,13 +13,29 @@ export const Container = styled.div<ContainerProps>`
   background: rgba(0, 0, 0, 0.6);
 
   .modal-main {
-    position: fixed;
+    position: relative;
     background: white;
-    width: 80%;
+    width: 30%;
     height: auto;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+
+  .btn-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border-radius: 50px;
+    border: none;
+    padding: 0.5rem 0.75rem;
+    color: #616267;
+    background: none;
+    transition: all 0.3s ease-in-out;
+
+    :hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
   }
 
   display: ${(props) => (props.show ? "block" : "none")};
