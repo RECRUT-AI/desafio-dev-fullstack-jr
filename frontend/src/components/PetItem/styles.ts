@@ -22,7 +22,7 @@ export const ContentRow = styled.div`
     text-decoration: none;
     color: #616267;
     background: none;
-    border: 1px solid #ccc;
+    border: 1px solid #aaa;
     border-radius: 10px;
 
     margin-bottom: 0.2rem;

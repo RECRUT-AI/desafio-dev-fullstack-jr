@@ -5,20 +5,20 @@ import { api } from "../../services/api";
 import { Container, Content } from "./styles";
 
 import { Pet } from "../../types";
+import PetCard from "../PetCard";
 
 interface PetsListProps {
   update: boolean;
   startEditing: (pet_id: number) => void;
+  openDetail: (pet_id: number) => void;
 }
 
-const PetsList = ({ update, startEditing }: PetsListProps) => {
+const PetsList = ({ update, startEditing, openDetail }: PetsListProps) => {
   const [pets, setPets] = useState<Pet[]>([]);
 
   useEffect(() => {
     async function loadPets() {
-      console.log("response.data");
       api.get("pets").then((response) => {
-        console.log("response.data");
         setPets(response.data);
       });
     }
@@ -45,11 +45,14 @@ const PetsList = ({ update, startEditing }: PetsListProps) => {
         <Content>
           {pets.map((pet) => {
             return (
-              <PetItem
-                startEditing={startEditing}
-                key={pet.id}
-                pet={pet}
-              ></PetItem>
+              <>
+                <PetItem
+                  startEditing={startEditing}
+                  openDetail={openDetail}
+                  key={pet.id}
+                  pet={pet}
+                />
+              </>
             );
           })}
         </Content>

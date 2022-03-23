@@ -27,6 +27,10 @@ export const Container = styled.div`
     border-radius: 5px;
     border: 1px solid #ccc;
     padding: 0.2rem 0.5rem;
+
+    ::placeholder {
+      color: rgba(0, 0, 0, 0.2);
+    }
   }
 
   select {
@@ -41,5 +45,12 @@ export const Container = styled.div`
     border-radius: 10px;
     border: 1px solid #ccc;
     padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 1);
+
+    transition: all 0.3s ease-in-out;
+
+    :hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
   }
 `;

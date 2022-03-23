@@ -29,7 +29,7 @@ const AddPetForm = ({ handleClose }: AddPetFormProps) => {
   });
 
   useEffect(() => {
-    reset({ name: "", age: 0, breed: "", tutorName: "", tutorPhone: "" });
+    reset({ name: "", breed: "", tutorName: "", tutorPhone: "" });
   }, [isSubmitSuccessful]);
 
   return (
@@ -37,20 +37,20 @@ const AddPetForm = ({ handleClose }: AddPetFormProps) => {
       <h2>Cadastro de pet</h2>
       <form onSubmit={onSubmit}>
         <label>Nome</label>
-        <input {...register("name")} />
+        <input {...register("name")} placeholder="Nome do pet" />
         <label>Idade</label>
-        <input {...register("age")} />
+        <input {...register("age")} placeholder="Idade do pet" />
         <label className="type">Tipo</label>
         <select {...register("type")}>
-          <option value="Cat">Gato</option>
-          <option value="Dog">Cachorro</option>
+          <option value="Cachorro">Cachorro</option>
+          <option value="Gato">Gato</option>
         </select>
         <label>Raça</label>
-        <input {...register("breed")} />
+        <input {...register("breed")} placeholder="Raça do pet" />
         <label>Nome do tutor</label>
-        <input {...register("tutorName")} />
+        <input {...register("tutorName")} placeholder="Nome do tutor" />
         <label>Telefone do tutor</label>
-        <input {...register("tutorPhone")} />
+        <input {...register("tutorPhone")} placeholder="Telefone do pet" />
         <button type="submit">Cadastrar</button>
       </form>
     </Container>

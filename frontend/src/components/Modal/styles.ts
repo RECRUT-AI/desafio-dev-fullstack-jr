@@ -11,6 +11,7 @@ export const Container = styled.div<ContainerProps>`
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
 
   .modal-main {
     position: relative;
@@ -20,6 +21,7 @@ export const Container = styled.div<ContainerProps>`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border-radius: 5px;
   }
 
   .btn-close {

@@ -37,15 +37,15 @@ const EditPetForm = ({
       <h2>Edição de pet</h2>
       <form onSubmit={onSubmit}>
         <label>Nome</label>
-        <input {...register("name")} />
+        <input {...register("name")} placeholder="Novo nome" />
         <label>Idade</label>
-        <input {...register("age")} />
+        <input {...register("age")} placeholder="Nova idade" />
         <label>Raça</label>
-        <input {...register("breed")} />
+        <input {...register("breed")} placeholder="Nova raça" />
         <label>Nome do tutor</label>
-        <input {...register("tutorName")} />
+        <input {...register("tutorName")} placeholder="Novo tutor" />
         <label>Telefone do tutor</label>
-        <input {...register("tutorPhone")} />
+        <input {...register("tutorPhone")} placeholder="Novo telefone" />
         <button type="submit">Editar</button>
       </form>
     </Container>

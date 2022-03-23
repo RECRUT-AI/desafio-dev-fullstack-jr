@@ -5,11 +5,16 @@ import { Pet } from "../../types";
 interface PetItemProps {
   pet: Pet;
   startEditing: (pet_id: number) => void;
+  openDetail: (pet_id: number) => void;
 }
 
-const PetItem = ({ pet, startEditing }: PetItemProps) => {
+const PetItem = ({ pet, startEditing, openDetail }: PetItemProps) => {
   const handleEdit = () => {
     startEditing(pet.id);
+  };
+
+  const handleDetailView = () => {
+    openDetail(pet.id);
   };
   return (
     <Container>
@@ -18,26 +23,16 @@ const PetItem = ({ pet, startEditing }: PetItemProps) => {
           <span className="title">Nome: </span>
           {pet.name}
         </ContentItem>
-        <ContentItem>
-          <span className="title">Idade:</span> {pet.age}
-        </ContentItem>
       </ContentRow>
       <ContentRow>
         <ContentItem>
           <span className="title">Tipo: </span>
           {pet.type}
         </ContentItem>
-        <ContentItem>
-          <span className="title">Raça: </span>
-          {pet.breed}
-        </ContentItem>
       </ContentRow>
       <ContentRow>
         <ContentItem>
           <span className="title">Tutor:</span> {pet.tutorName}
-        </ContentItem>
-        <ContentItem>
-          <span className="title">Telefone do tutor:</span> {pet.tutorPhone}
         </ContentItem>
       </ContentRow>
 
@@ -46,7 +41,9 @@ const PetItem = ({ pet, startEditing }: PetItemProps) => {
           Editar
         </button>
         <button className="delete">Deletar</button>
-        <button className="details">Detalhes</button>
+        <button className="details" onClick={handleDetailView}>
+          Detalhes
+        </button>
       </ContentRow>
     </Container>
   );
