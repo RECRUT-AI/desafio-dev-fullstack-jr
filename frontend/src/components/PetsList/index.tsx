@@ -5,15 +5,20 @@ import { api } from "../../services/api";
 import { Container, Content } from "./styles";
 
 import { Pet } from "../../types";
-import PetCard from "../PetCard";
 
 interface PetsListProps {
   update: boolean;
   startEditing: (pet_id: number) => void;
   openDetail: (pet_id: number) => void;
+  deleteItem: (pet_id: number) => void;
 }
 
-const PetsList = ({ update, startEditing, openDetail }: PetsListProps) => {
+const PetsList = ({
+  update,
+  startEditing,
+  openDetail,
+  deleteItem,
+}: PetsListProps) => {
   const [pets, setPets] = useState<Pet[]>([]);
 
   useEffect(() => {
@@ -49,6 +54,7 @@ const PetsList = ({ update, startEditing, openDetail }: PetsListProps) => {
                 <PetItem
                   startEditing={startEditing}
                   openDetail={openDetail}
+                  deleteItem={deleteItem}
                   key={pet.id}
                   pet={pet}
                 />

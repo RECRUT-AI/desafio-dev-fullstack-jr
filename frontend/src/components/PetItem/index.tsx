@@ -6,15 +6,25 @@ interface PetItemProps {
   pet: Pet;
   startEditing: (pet_id: number) => void;
   openDetail: (pet_id: number) => void;
+  deleteItem: (pet_id: number) => void;
 }
 
-const PetItem = ({ pet, startEditing, openDetail }: PetItemProps) => {
+const PetItem = ({
+  pet,
+  startEditing,
+  openDetail,
+  deleteItem,
+}: PetItemProps) => {
   const handleEdit = () => {
     startEditing(pet.id);
   };
 
   const handleDetailView = () => {
     openDetail(pet.id);
+  };
+
+  const handleDelete = () => {
+    deleteItem(pet.id);
   };
   return (
     <Container>
@@ -36,15 +46,17 @@ const PetItem = ({ pet, startEditing, openDetail }: PetItemProps) => {
         </ContentItem>
       </ContentRow>
 
-      <ContentRow>
+      <ContentItem>
         <button className="edit" onClick={handleEdit}>
           Editar
         </button>
-        <button className="delete">Deletar</button>
+        <button className="delete" onClick={handleDelete}>
+          Deletar
+        </button>
         <button className="details" onClick={handleDetailView}>
           Detalhes
         </button>
-      </ContentRow>
+      </ContentItem>
     </Container>
   );
 };

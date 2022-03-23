@@ -13,7 +13,6 @@ const PetCard = ({ petId }: PetItemProps) => {
   useEffect(() => {
     async function loadPet() {
       api.get(`pets/${petId}`).then((response) => {
-        console.log("response.data");
         setPet(response.data);
       });
     }

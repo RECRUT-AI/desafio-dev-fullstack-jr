@@ -1,19 +1,20 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import AddPetForm from "./components/AddPetForm";
 import EditPetForm from "./components/EditPetForm";
 
 import PetsList from "./components/PetsList";
 import Modal from "./components/Modal";
 import GlobalStyles from "./styles/global";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import PetCard from "./components/PetCard";
-import { Pet } from "./types";
+import { api } from "./services/api";
 
 function App() {
   const [show, setShow] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [petId, setPetId] = useState(0);
   const [isDetail, setIsDetail] = useState(false);
+  const [updatePets, setUpdatePets] = useState(false);
 
   const showModal = () => {
     setShow(true);
@@ -29,6 +30,7 @@ function App() {
     }
 
     setShow(false);
+    setUpdatePets(!updatePets);
   };
 
   const startEditing = (pet_id: number) => {
@@ -47,13 +49,22 @@ function App() {
     showModal();
   };
 
+  const deleteItem = async (petId: number) => {
+    api
+      .delete(`pets/${petId}`)
+      .then((response) => toast.success("Pet deletado com sucesso"))
+      .catch((response) => toast.error("Erro ao deletar o pet."));
+    setUpdatePets(!updatePets);
+  };
+
   return (
     <>
       <GlobalStyles />
       <PetsList
-        update={show}
+        update={updatePets}
         startEditing={startEditing}
         openDetail={openDetail}
+        deleteItem={deleteItem}
       />
       <ToastContainer />
 

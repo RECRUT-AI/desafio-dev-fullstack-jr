@@ -24,7 +24,7 @@ const AddPetForm = ({ handleClose }: AddPetFormProps) => {
     handleClose();
     api
       .post("pets", data)
-      .then((response) => toast.success("Animal cadastrado com sucesso"))
+      .then((response) => toast.success("Pet cadastrado com sucesso"))
       .catch((response) => toast.error("Erro no cadastro."));
   });
 

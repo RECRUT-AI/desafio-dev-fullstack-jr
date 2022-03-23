@@ -15,6 +15,13 @@ export const Container = styled.div`
 export const ContentRow = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+export const ContentItem = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+  gap: 0.5rem;
 
   button {
     font-size: 0.8rem;
@@ -41,10 +48,4 @@ export const ContentRow = styled.div`
   .details:hover {
     background: rgba(0, 0, 0, 0.2);
   }
-`;
-
-export const ContentItem = styled.div`
-  display: flex;
-  margin-bottom: 0.5rem;
-  gap: 0.5rem;
 `;
