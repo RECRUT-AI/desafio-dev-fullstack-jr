@@ -1,0 +1,55 @@
+.viewPetBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 1.5rem 0;
+  background-color: var(--gray-800);
+  border-radius: 8px;
+}
+
+.petSession > img {
+  height: 10rem;
+  width: 10rem;
+  object-fit: cover;
+  border: 2px solid var(--green-500);
+  border-radius: 8px;
+}
+
+.viewPetBox .petSession {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.petSession .petInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.petSession .petInfo h1 {
+  margin-bottom: 1rem;
+  color: var(--green-500);
+}
+
+.petSession .petInfo span {
+  line-height: 1.6;
+}
+
+.ownerInfo {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  color: var(--gray-400);
+  justify-content: center;
+  align-items: center;
+}
+
+.backLink {
+  margin-top: 1rem;
+  color: var(--green-500);
+}
+

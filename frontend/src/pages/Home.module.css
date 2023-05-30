@@ -1,0 +1,18 @@
+.redirectToNewPetPageButton {
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  border: 0;
+  background: var(--green-500);
+  color: var(--white);
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.1s;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.redirectToNewPetPageButton:hover {
+  background: var(--green-300);
+}
+
