@@ -1,0 +1,47 @@
+.pet {
+  background: var(--gray-800);
+  border-radius: 8px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.pet + .pet {
+  margin-top: 2rem;
+}
+
+.petImg {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.petInfo {
+  display: flex;
+  flex-direction: column;
+  width: 10rem;
+}
+
+.pet .options {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  gap: 1rem;
+  flex: 1;
+}
+
+.pet .options svg {
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.pet .options svg:hover {
+  color: var(--green-500);
+}
+
+.pet .options .deleteIcon:hover {
+  color: var(--red-500);
+}
+
