@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Pet {
+  id      Int     @id @default(autoincrement())
+  name    String
+  age     Int
+  type    PetType
+  breed   String
+  ownerId Int
+  owner   Owner   @relation(fields: [ownerId], references: [id])
+}
+
+model Owner {
+  id    Int    @id @default(autoincrement())
+  name  String
+  phone String
+  pets  Pet[]
+}
+
+enum PetType {
+  CAT
+  DOG
+}
+
+// Cada animal de estimação precisa ter um identificador único, nome, idade, se é gato ou cachorro e sua respectiva raça; Além do nome e telefone para contato de seu dono.
