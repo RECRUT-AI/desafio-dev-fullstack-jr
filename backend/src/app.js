@@ -1,9 +1,12 @@
 const express = require("express");
+const cors = require("cors");
 const petRoutes = require("./routes/petRoutes");
 const donoRoutes = require("./routes/donoRoutes");
 
 const app = express();
 app.use(express.json());
+
+app.use(cors());
 
 app.get("/", async (_req, res) => {
   try {

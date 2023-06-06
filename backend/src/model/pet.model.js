@@ -9,7 +9,7 @@ const getAll = async () => {
 
 const getPetById = async (id) => {
   const [[petId]] = await connection.execute(
-    'SELECT * FROM recruit_petshop.pet WHERE id = ?',
+    'SELECT * FROM recruit_petshop.pet WHERE idpet = ?',
     [id],
   );
   return petId;

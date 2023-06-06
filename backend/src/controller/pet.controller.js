@@ -6,8 +6,8 @@ const getAll = async (_req, res) => {
 };
 
 const getPetById = async (req, res) => {
-    const { petId } = req.params;
-    const listId = await petService.getPetById(petId);
+    const { idPet } = req.params;
+    const listId = await petService.getPetById(idPet);
     if (listId.type) {
       return res.status(404).json({ message: listId.message });
     }
@@ -21,9 +21,9 @@ const getPetById = async (req, res) => {
 // };
 
 const updatePet = async (req, res) => {
-  const { petId } = req.params;
-  const { name } = req.body;
-  const listId = await petService.updatePet(petId, name);
+  const { idPet } = req.params;
+  const { name, idade, tipo, raca } = req.body;
+  const listId = await petService.updatePet(idPet, name, idade, tipo, raca);
   if (listId.type) {
     return res.status(404).json({ message: listId.message });
   }
@@ -31,8 +31,8 @@ const updatePet = async (req, res) => {
 };
 
 const deletePet = async (req, res) => {
-  const { petId } = req.params;
-  const deleteId = await petService.deletePet(petId);
+  const { idPet } = req.params;
+  const deleteId = await petService.deletePet(idPet);
   if (deleteId.type) {
     return res.status(404).json({ message: deleteId.message });
   }

@@ -1,21 +1,17 @@
-import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Context from "./context/context";
-import Feiticos from "./pages/pets/pets";
+import React from 'react';
+import PetList from './components/PetList';
+import PetForm from './components/PetForm';
+import './App.css';
 
 function App() {
   return (
-    <div>
-      <BrowserRouter>
-        <Switch>
-          <Context.Provider
-          >
-            <Route path="/pet" component={Feiticos} />
-          </Context.Provider>
-        </Switch>
-      </BrowserRouter>
+    <div className="App">
+      <h1>Petshop</h1>
+      <PetList />
+      <PetForm />
     </div>
   );
 }
 
 export default App;
+
