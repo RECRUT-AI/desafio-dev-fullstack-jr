@@ -21,6 +21,8 @@ import { FilterList } from '../forms/FilterList';
 import { SearchInput } from '../forms/SearchInput';
 import { SearchIcon } from '@chakra-ui/icons';
 import { AddPetButton } from '../buttons/AddPetButton';
+import CreatePetForm from '../forms/CreatePetForm';
+import CreateModal from '../modals/CreateModal';
 
 export function PetsTable() {
   const dispatch = useAppDispatch;
@@ -81,7 +83,7 @@ export function PetsTable() {
           columns={3}
           maxW='80%'
         >
-          <AddPetButton />
+          <CreateModal />
           <FilterList onFilterChange={handleFilterChange} />
         </SimpleGrid>
       </Center>

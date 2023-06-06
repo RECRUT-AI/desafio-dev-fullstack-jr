@@ -14,6 +14,15 @@ interface Pet {
   ownerPhone: string;
 }
 
+interface NewPet {
+  name: string;
+  age: number;
+  type: string;
+  breed: string;
+  owner: string;
+  ownerPhone: string;
+}
+
 export const getPets = async (): Promise<Pet[]> => {
   const response = await instance.get<Pet[]>('/pets');
   const pets = response.data;
@@ -21,8 +30,8 @@ export const getPets = async (): Promise<Pet[]> => {
   return pets;
 };
 
-export const createPet = async (pet: Pet): Promise<Pet> => {
-  const response = await instance.post<Pet>('/pets', pet);
+export const createPet = async (pet: NewPet): Promise<NewPet> => {
+  const response = await instance.post<NewPet>('/pets', pet);
   const createdPet = response.data;
 
   return createdPet;
