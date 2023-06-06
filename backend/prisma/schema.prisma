@@ -11,20 +11,13 @@ datasource db {
 }
 
 model Pet {
-  id      Int     @id @default(autoincrement())
-  name    String
-  age     Int
-  type    PetType
-  breed   String
-  ownerId Int
-  owner   Owner   @relation(fields: [ownerId], references: [id])
-}
-
-model Owner {
-  id    Int    @id @default(autoincrement())
-  name  String
-  phone String
-  pets  Pet[]
+  id          Int     @id @default(autoincrement())
+  name        String
+  age         Int
+  type        PetType
+  breed       String
+  owner       String
+  ownerPhone  String
 }
 
 enum PetType {
@@ -32,4 +25,3 @@ enum PetType {
   DOG
 }
 
-// Cada animal de estimação precisa ter um identificador único, nome, idade, se é gato ou cachorro e sua respectiva raça; Além do nome e telefone para contato de seu dono.

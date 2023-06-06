@@ -1,4 +1,4 @@
-interface Pet {
+export default interface IPet {
   id: number;
   name: string;
   age: number;
@@ -12,7 +12,7 @@ interface Owner {
   id: number;
   name: string;
   phone: string;
-  pets: Pet[];
+  pets: IPet[];
 }
 
 enum PetType {
