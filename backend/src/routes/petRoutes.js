@@ -1,10 +1,12 @@
 const express = require("express");
 const router = express.Router();
 
-const { pet } = require("../controller");
+const { petController} = require("../controller");
 
-feiticosRouter.get("/", feiticosController.getAll);
-feiticosRouter.post("/", feiticosController.create);
-feiticosRouter.get("/:personagem_id", feiticosController.getByPersonsagemId);
+router.get("/", petController.getAll);
+// router.post("/", petController.create);
+router.get("/:pet_id", petController.getPetById);
+router.put("/:pet_id", petController.updatePet);
+router.delete("/:pet_id", petController.deletePet);
 
-module.exports = feiticosRouter;
+module.exports = router;
