@@ -1,12 +1,18 @@
-import React from 'react';
-import './App.css';
+import { PersistGate } from 'redux-persist/integration/react';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
+import { persistStore } from 'redux-persist';
 
-function App() {
+const persistor = persistStore(store);
+
+export function App() {
   return (
     <div className="App">
-      <p>hello world!</p>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <p>hello world!</p>
+        </PersistGate>
+      </Provider>
     </div>
   );
 }
-
-export default App;
