@@ -1,3 +1,18 @@
+# Como utilizar a aplicação
+
+O Backend e Banco de dados estão com deploy realizado no railway.
+
+O Frontend está com deploy realizado na vercel, você pode conferir [aqui](https://desafio-dev-fullstack-odk3zlkul-isaacdalmeida.vercel.app/)
+
+Para utilizar localmente a aplicação você deverá criar um arquivo '.env' com a seguinte chave:
+
+`DATABASE_URL="mysql://user:password@containers-us-west-200.railway.app:porta/nome_schema"`
+
+substitua user e password por seu acesso do mySQL e a porta pela qual porta desejar.
+
+use 'npm start' e 'npm start' em seguida, dessa forma você estará conectado ao banco de dados'
+
+utilize também, no front, 'npm install' e 'npm start', dessa forma será possível iniciar a aplicação, você poderá substituir a url base no arquivo fetchPetsAPI pela url do localhost.
 
 # Desafio - Desenvolvedor Fullstack Júnior
 Seja bem-vindo(a)! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato à vaga de Desenvolvedor Fullstack Júnior.
