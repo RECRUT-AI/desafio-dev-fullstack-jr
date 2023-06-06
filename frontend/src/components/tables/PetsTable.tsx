@@ -20,12 +20,12 @@ import { useState } from 'react';
 import { FilterList } from '../forms/FilterList';
 import { SearchInput } from '../forms/SearchInput';
 import { SearchIcon } from '@chakra-ui/icons';
-import { AddPetButton } from '../buttons/AddPetButton';
-import CreatePetForm from '../forms/CreatePetForm';
 import CreateModal from '../modals/CreateModal';
+import { deletePet } from '../../services/fetchPetsAPI';
+import { removeFromList } from '../../redux/reducers/petSlice';
 
 export function PetsTable() {
-  const dispatch = useAppDispatch;
+  const dispatch = useAppDispatch();
 
   const petList = useAppSelector((
     state: RootState) => state.pets.arrayOfPets);
@@ -74,6 +74,11 @@ export function PetsTable() {
       pet.name.toLowerCase().includes(searchText.toLowerCase()))
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     .sort(sortFunctions[selectedFilter as SortType] || ((a, b) => 0));
+
+  const handleDelete = async (id: number) => {
+    dispatch(removeFromList(id));
+    await deletePet(id);
+  };
 
   return (
     <div>
@@ -133,6 +138,7 @@ export function PetsTable() {
                         mr={2}
                         icon={<RiDeleteBin2Line />}
                         aria-label="deletar pet"
+                        onClick={() => void handleDelete(pet.id)}
                       />
                     </Td>
                   </Tr>

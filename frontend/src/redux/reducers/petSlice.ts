@@ -27,10 +27,14 @@ const petSlice = createSlice({
     setPets: (state, action: PayloadAction<Pet[]>) => {
       state.arrayOfPets = action.payload;
     },
+    removeFromList: (state, action: PayloadAction<number>) => {
+      state.arrayOfPets = state.arrayOfPets
+        .filter(item => item.id !== action.payload);
+    },
   },
 });
 
-export const { setPets } = petSlice.actions;
+export const { setPets, removeFromList } = petSlice.actions;
 
 export const selectPet =
   (state: RootState) => state.pets.arrayOfPets;
