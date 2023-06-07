@@ -1,0 +1,36 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json .",
+    "dev": "nodemon index.js",
+    "test:mocha": "mocha test/**/*.test.js",
+    "test:coverage": "nyc mocha test/**/*.test.js",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "4.3.4",
+    "chai-http": "4.3.0",
+    "eslint": "^8.42.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "mocha": "10.2.0",
+    "nodemon": "2.0.22",
+    "nyc": "15.1.0",
+    "sinon": "11.1.1",
+    "sinon-chai": "3.7.0"
+  },
+  "dependencies": {
+    "express": "^4.17.3",
+    "mysql2": "^2.3.3",
+    "cors": "^2.8.5",
+    "express-async-errors": "3.1.1",
+    "joi": "17.6.0",
+    "nodemon": "^2.0.22"
+  }
+}

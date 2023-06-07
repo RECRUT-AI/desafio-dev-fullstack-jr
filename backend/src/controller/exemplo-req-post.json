@@ -1,0 +1,12 @@
+{
+  "pet": {
+    "nome": "teste",
+    "idade": "12",
+    "tipo": "cachorro",
+    "raca": "goldem"
+  },
+  "dono": {
+    "nome": "douglas",
+    "telefone": "8198765434"
+  }
+}
