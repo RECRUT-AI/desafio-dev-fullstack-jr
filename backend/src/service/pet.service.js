@@ -11,25 +11,25 @@ const getPetById = async (Id) => {
   return { type: null, message: listId };
 };
 
-// const petCriated = async (pet) => {
-//   const newPetId = await petModel.petCriated ({ pet });
-//   const newPet = await petModel.getPetById(newPetId);
+const petCriated = async (pet) => {
+  const newPetId = await petModel.petCriated({ pet });
+  const newPet = await petModel.getPetById(newPetId);
 
-//   return { type: null, message: newPet };
-// };
+  return { type: null, message: newPet };
+};
 
-const updatePet = async (id, name) => {
-  await petModel.updatePet(id, name);
-  const searchPet = await petModel.getPetById(id);
+const updatePet = async (idPet, nome, idade, tipo, raca) => {
+  await petModel.updatePet(idPet, nome, idade, tipo, raca);
+  const searchPet = await petModel.getPetById(idPet);
   if (!searchPet) return { type: 404, message: 'Pet not found' };
   return { type: null, message: searchPet };
 };
 
-const deletePet = async (id) => {
-  const searchPet = await petModel.getPetById(id);
+const deletePet = async (idPet) => {
+  const searchPet = await petModel.getPetById(idPet);
   if (!searchPet) return { type: 404, message: 'Pet not found' };
-  await petModel.deletePet(id);
-  return { type: null, message: null };
+  await petModel.deletePet(idPet);
+  return { type: null, message: 'Deleted pet' };
 };
 
 module.exports = {
@@ -37,5 +37,5 @@ module.exports = {
   getAll,
   updatePet,
   deletePet,
-  // petCriated 
+  petCriated,
 };

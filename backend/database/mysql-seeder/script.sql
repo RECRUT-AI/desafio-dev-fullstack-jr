@@ -14,7 +14,8 @@ INSERT INTO
 VALUES
   ("Gabriel Barbosa",  "8134445434"),
   ("Allan Medeiros", "81987654323"),
-  ("Raul josé", "81976544323");
+  ("Raul Souza", "81976544323"),
+  ("Matheus Borba", "81976544323");
 
 CREATE TABLE IF NOT EXISTS `recruit_petshop`.`pet` (
   `idpet` INT NOT NULL AUTO_INCREMENT,
@@ -36,7 +37,9 @@ ENGINE = InnoDB;
 INSERT INTO
   recruit_petshop.pet (nome, idade, tipo, raca, id_dono)
 VALUES
-  ("Bethovem", 12, 'cachorro', 'Golden retriever', 1),
-  ("Mel", 2, 'cachorro', 'viralata', 1),
-  ("Alemão", 4, 'gato', 'siamês', 2),
-  ("Billy", 12, 'gato', 'Ragdoll', 3);
+  ("Bethovem", 12, 'Cachorro', 'Golden retriever', 1),
+  ("Rex", 2, 'Cachorro', 'viralata', 1),
+  ("Mel", 4, 'Gato', 'Himalaia', 2),
+  ("Tesouro", 4, 'Gato', 'Ashera', 4),
+  ("Billy", 12, 'Gato', 'Ragdoll', 3);
+  

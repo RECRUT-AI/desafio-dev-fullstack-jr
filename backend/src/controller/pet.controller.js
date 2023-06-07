@@ -14,16 +14,11 @@ const getPetById = async (req, res) => {
     return res.status(200).json(listId.message);
 };
 
-// const petCriated = async (req, res) => {
-//   const { pet } = req.body;
-//   const petCreate = await petService.petCriated (pet);
-//   return res.status(201).json(petCreate.message);
-// };
-
 const updatePet = async (req, res) => {
   const { idPet } = req.params;
-  const { name, idade, tipo, raca } = req.body;
-  const listId = await petService.updatePet(idPet, name, idade, tipo, raca);
+  const { nome, idade, tipo, raca } = req.body;
+  console.log(idPet, nome, idade, tipo, raca)
+  const listId = await petService.updatePet(idPet, nome, idade, tipo, raca);
   if (listId.type) {
     return res.status(404).json({ message: listId.message });
   }
@@ -39,9 +34,16 @@ const deletePet = async (req, res) => {
   return res.status(204).json();
 };
 
+const petCriated = async (req, res) => {
+  const { pet } = req.body;
+  const petCreate = await petService.petCriated(pet);
+  return res.status(201).json(petCreate.message);
+};
+
 module.exports = {
   getPetById,
   getAll,
   updatePet,
   deletePet,
+  petCriated,
 };

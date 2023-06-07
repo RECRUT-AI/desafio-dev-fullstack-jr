@@ -4,9 +4,9 @@ const router = express.Router();
 const { petController} = require("../controller");
 
 router.get("/", petController.getAll);
-// router.post("/", petController.create);
+router.post("/", petController.petCriated);
 router.get("/:idPet", petController.getPetById);
 router.put("/:idPet", petController.updatePet);
-router.delete("/:pet_id", petController.deletePet);
+router.delete("/:idPet", petController.deletePet);
 
 module.exports = router;
