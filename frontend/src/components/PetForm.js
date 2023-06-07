@@ -29,9 +29,6 @@ const PetForm = () => {
 
     api.post('/pet', petData)
       .then((response) => {
-        console.log('Pet criado com sucesso:', response.data);
-        // Limpar os campos do formulário
-        console.log('Pet criado com sucesso:', response.data);
         setPets([...pets, response.data]);
         setNome('');
         setIdade('');
@@ -125,7 +122,7 @@ const PetForm = () => {
         </label>
 
         {!isFormValid() && <p className="text-red-500 mb-2">Preencha todos os campos corretamente.</p>}
-        
+
         <button
           type="submit"
           disabled={!isFormValid()}
