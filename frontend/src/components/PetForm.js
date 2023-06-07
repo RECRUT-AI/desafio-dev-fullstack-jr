@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import api from '../utils/api';
+import Context from "../../src/context/context";
 
-function PetForm() {
+const PetForm = () => {
+  const { pets, setPets } = useContext(Context);
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [type, setType] = useState('');
@@ -8,113 +11,112 @@ function PetForm() {
   const [ownerName, setOwnerName] = useState('');
   const [ownerPhone, setOwnerPhone] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-    // Crie um objeto com os dados do animal de estimação
     const petData = {
       name,
       age,
       type,
       breed,
-      ownerName,
-      ownerPhone,
+      owner: {
+        name: ownerName,
+        phone: ownerPhone,
+      },
     };
 
-    // Faça uma requisição POST para enviar os dados do animal de estimação ao backend
-    // Lembre-se de tratar o caso de sucesso e erro
-
-    // Exemplo de requisição usando fetch:
-    fetch('/api/pets', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(petData),
-    })
+    api.post('/pets', petData)
       .then((response) => {
-        if (response.ok) {
-          // O animal de estimação foi adicionado com sucesso
-          // Redefina os campos do formulário
-          setName('');
-          setAge('');
-          setType('');
-          setBreed('');
-          setOwnerName('');
-          setOwnerPhone('');
-        } else {
-          // Houve um erro ao adicionar o animal de estimação
-          // Lide com o erro adequadamente
-        }
+        console.log('Pet criado com sucesso:', response.data);
+        // Limpar os campos do formulário
+        setName('');
+        setAge('');
+        setType('');
+        setBreed('');
+        setOwnerName('');
+        setOwnerPhone('');
       })
       .catch((error) => {
-        // Houve um erro de conexão com o servidor
-        // Lide com o erro adequadamente
+        console.error('Erro ao criar o pet:', error);
       });
   };
 
   return (
-    <div>
-      <h2>Adicionar Animal de Estimação</h2>
+    <div className="bg-gray-100 p-4 mt-8">
+      <h2 className="text-xl font-bold mb-4">Cadastrar novo pet</h2>
       <form onSubmit={handleSubmit}>
-        <label>
+        <label className="block mb-4">
           Nome:
           <input
             type="text"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(event) => setName(event.target.value)}
+            className="border border-gray-300 rounded p-2 w-full text-center"
+            required
           />
         </label>
-        <br />
-        <label>
+        <label className="block mb-4">
           Idade:
           <input
             type="text"
             value={age}
-            onChange={(e) => setAge(e.target.value)}
+            onChange={(event) => setAge(event.target.value)}
+            className="border border-gray-300 rounded p-2 w-full text-center"
+            required
           />
         </label>
-        <br />
-        <label>
+        <label className="block mb-4">
           Tipo:
-          <input
-            type="text"
+          <select
             value={type}
-            onChange={(e) => setType(e.target.value)}
-          />
+            onChange={(event) => setType(event.target.value)}
+            className="border border-gray-300 rounded p-2 w-full text-center"
+            required
+          >
+            <option value="">Selecione</option>
+            <option value="gato">Gato</option>
+            <option value="cachorro">Cachorro</option>
+          </select>
         </label>
-        <br />
-        <label>
+        <label className="block mb-4">
           Raça:
           <input
             type="text"
             value={breed}
-            onChange={(e) => setBreed(e.target.value)}
+            onChange={(event) => setBreed(event.target.value)}
+            className="border border-gray-300 rounded p-2 w-full text-center"
+            required
           />
         </label>
-        <br />
-        <label>
+        <label className="block mb-4">
           Nome do Dono:
           <input
             type="text"
             value={ownerName}
-            onChange={(e) => setOwnerName(e.target.value)}
+            onChange={(event) => setOwnerName(event.target.value)}
+            className="border border-gray-300 rounded p-2 w-full text-center"
+            required
           />
         </label>
-        <br />
-        <label>
+        <label className="block mb-4">
           Telefone do Dono:
           <input
             type="text"
             value={ownerPhone}
-            onChange={(e) => setOwnerPhone(e.target.value)}
+            onChange={(event) => setOwnerPhone(event.target.value)}
+            className="border border-gray-300 rounded p-2 w-full text-center"
+            required
           />
         </label>
-        <br />
-        <button type="submit">Adicionar</button>
+        <button
+          type="submit"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Adicionar Pet
+        </button>
       </form>
     </div>
   );
-}
+};
 
 export default PetForm;

@@ -1,36 +1,98 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import Context from "../../src/context/context";
 import api from "../../src/utils/api";
+import PetForm from './PetForm';
 
 function PetList() {
-  const [pets, setPets] = useState([]);
+  const { pets,
+    setPets,
+    editingPet,
+    setEditingPet } = useContext(Context);
+  const [filter, setFilter] = useState('');
+  const history = useHistory();
 
-  useEffect(() => {
+  const fetchPets = () => {
     api.get("/pet")
     .then((response) => setPets(response.data))
     .catch((error) => {
-      console.error("Ocorreu um erro na requisição:", error);
+      console.error("Ocorreu um erro na requisição", error);
+    });
+  };
+
+  const handleDeletePet = (idpet) => {
+    api.delete(`/pet/${idpet}`)
+      .then(() => fetchPets())
+      .catch((error) => {
+        console.error("Ocorreu um erro na requisição", error);
+      });
+  };
+
+  const filterPets = () => {
+    const filterLowercase = filter.toLowerCase(); 
+    if (filterLowercase === 'gato') {
+      return pets.filter((pet) => pet.tipo.toLowerCase() === 'gato'); 
+    } else if (filterLowercase === 'cachorro') {
+      return pets.filter((pet) => pet.tipo.toLowerCase() === 'cachorro');
+    } else {
+      return pets;
     }
-    );
+  };
+
+  const handleFilterChange = (event) => {
+    setFilter(event.target.value); // Atualiza o estado do filtro
+  };
+
+  const handleGoToOwners = () => {
+    history.push('/pets/owners');
+  };
+
+  const handleEditPet = (pet) => {
+    console.log(pet);
+    setEditingPet(pet); // Atualiza o estado editingPet com o pet sendo editado
+    history.push(`/pets/${pet.idpet}/edit`); // Redireciona para a página de edição
+    console.log(editingPet)
+  };
+  
+
+  useEffect(() => {
+    fetchPets();
   }, []);
 
-    // Exemplo de requisição usando fetch:
-    // fetch('/api/pets')
-    //   .then((response) => response.json())
-    //   .then((data) => setPets(data));
   return (
-    <div>
-      <h2>Lista de Animais de Estimação</h2>
-      { console.log( pets)}
-      {pets.map((pet) => (
-        <div key={pet.idpet}>
-          <h3>{pet.nome}</h3>
-          <p>Idade: {pet.idade}</p>
-          <p>Tipo: {pet.tipo}</p>
-          <p>Raça: {pet.raca}</p>
-          <p>Dono: {pet.id_dono}</p>
-          <p>Contato: {pet.ownerPhone}</p>
+    <div className='bg-gray-100 py-8'>
+      <h2 className="text-2xl font-bold mb-4">Lista de Animais de Estimação</h2>
+      <select value={filter} onChange={handleFilterChange}>
+        <option value="">Todos</option>
+        <option value="gato">Gato</option>
+        <option value="cachorro">Cachorro</option>
+      </select>
+      {filterPets().map((pet) => (
+        <div 
+        className="bg-white rounded-lg shadow-md p-4 mb-4"
+        key={pet.idpet}>
+          <h3 className="text-lg font-semibold">{pet.nome}</h3>
+          <p className="text-gray-600">Idade: {pet.idade}</p>
+          <p className="text-gray-600">Tipo: {pet.tipo}</p>
+          <p className="text-gray-600">Raça: {pet.raca}</p>
+          <p className="text-gray-600">Dono: {pet.id_dono}</p>
+          <p className="text-gray-600">Contato: {pet.ownerPhone}</p>
+          <button onClick={() => handleDeletePet(pet.idpet)}
+           className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded"
+          >Excluir</button>
+          <button onClick={() => handleEditPet(pet)}
+          className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">Editar</button>
         </div>
       ))}
+      <div>
+      <button
+      className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4"
+      onClick={handleGoToOwners}
+    >
+      Informação dos donos de Pets
+    </button>
+        <PetForm />
+      </div>
     </div>
   );
 }
