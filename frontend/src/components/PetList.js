@@ -40,7 +40,7 @@ function PetList() {
   };
 
   const handleFilterChange = (event) => {
-    setFilter(event.target.value); // Atualiza o estado do filtro
+    setFilter(event.target.value);
   };
 
   const handleGoToOwners = () => {
@@ -49,8 +49,8 @@ function PetList() {
 
   const handleEditPet = (pet) => {
     console.log(pet);
-    setEditingPet(pet); // Atualiza o estado editingPet com o pet sendo editado
-    history.push(`/pets/${pet.idpet}/edit`); // Redireciona para a página de edição
+    setEditingPet(pet);
+    history.push(`/pets/${pet.idpet}/edit`);
     console.log(editingPet)
   };
   

@@ -15,7 +15,6 @@ const EditPet = () => {
   });
 
   useEffect(() => {
-    // Busca as informações do pet com o ID fornecido
     api.get(`/pet/${idpet}`)
       .then((response) => {
         setEditedPet(response.data);
@@ -35,10 +34,9 @@ const EditPet = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Envia a requisição PUT para atualizar as informações do pet
     api.put(`/pet/${idpet}`, editedPet)
       .then(() => {
-        history.push('/pets'); // Redireciona para a página de listagem de pets
+        history.push('/pets'); 
       })
       .catch((error) => {
         console.error("Erro ao atualizar as informações do pet:", error);
