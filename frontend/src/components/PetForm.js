@@ -4,39 +4,41 @@ import api from '../utils/api';
 
 const PetForm = () => {
   const { pets, setPets } = useContext(Context);
-  const [name, setName] = useState('');
-  const [age, setAge] = useState('');
-  const [type, setType] = useState('');
-  const [breed, setBreed] = useState('');
-  const [ownerName, setOwnerName] = useState('');
-  const [ownerPhone, setOwnerPhone] = useState('');
+  const [nome, setNome] = useState('');
+  const [idade, setIdade] = useState('');
+  const [tipo, setTipo] = useState('');
+  const [raca, setRaca] = useState('');
+  const [donoNome, setDonoNome] = useState('');
+  const [donoTelefone, setDonoTelefone] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const petData = {
-      name,
-      age,
-      type,
-      breed,
-      owner: {
-        name: ownerName,
-        phone: ownerPhone,
+      pet: {
+        nome,
+        idade,
+        tipo,
+        raca,
+      },
+      dono: {
+        nome: donoNome,
+        telefone: donoTelefone,
       },
     };
 
-    api.post('/pets', petData)
+    api.post('/pet', petData)
       .then((response) => {
         console.log('Pet criado com sucesso:', response.data);
         // Limpar os campos do formulário
-        console.log(response.data)
+        console.log('Pet criado com sucesso:', response.data);
         setPets([...pets, response.data]);
-        setName('');
-        setAge('');
-        setType('');
-        setBreed('');
-        setOwnerName('');
-        setOwnerPhone('');
+        setNome('');
+        setIdade('');
+        setTipo('');
+        setRaca('');
+        setDonoNome('');
+        setDonoTelefone('');
       })
       .catch((error) => {
         console.error('Erro ao criar o pet:', error);
@@ -51,8 +53,8 @@ const PetForm = () => {
           Nome:
           <input
             type="text"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
+            value={nome}
+            onChange={(event) => setNome(event.target.value)}
             className="border border-gray-300 rounded p-2 w-full text-center"
             required
           />
@@ -61,8 +63,8 @@ const PetForm = () => {
           Idade:
           <input
             type="text"
-            value={age}
-            onChange={(event) => setAge(event.target.value)}
+            value={idade}
+            onChange={(event) => setIdade(event.target.value)}
             className="border border-gray-300 rounded p-2 w-full text-center"
             required
           />
@@ -70,8 +72,8 @@ const PetForm = () => {
         <label className="block mb-4">
           Tipo:
           <select
-            value={type}
-            onChange={(event) => setType(event.target.value)}
+            value={tipo}
+            onChange={(event) => setTipo(event.target.value)}
             className="border border-gray-300 rounded p-2 w-full text-center"
             required
           >
@@ -84,8 +86,8 @@ const PetForm = () => {
           Raça:
           <input
             type="text"
-            value={breed}
-            onChange={(event) => setBreed(event.target.value)}
+            value={raca}
+            onChange={(event) => setRaca(event.target.value)}
             className="border border-gray-300 rounded p-2 w-full text-center"
             required
           />
@@ -94,8 +96,8 @@ const PetForm = () => {
           Nome do Dono:
           <input
             type="text"
-            value={ownerName}
-            onChange={(event) => setOwnerName(event.target.value)}
+            value={donoNome}
+            onChange={(event) => setDonoNome(event.target.value)}
             className="border border-gray-300 rounded p-2 w-full text-center"
             required
           />
@@ -104,8 +106,8 @@ const PetForm = () => {
           Telefone do Dono:
           <input
             type="text"
-            value={ownerPhone}
-            onChange={(event) => setOwnerPhone(event.target.value)}
+            value={donoTelefone}
+            onChange={(event) => setDonoTelefone(event.target.value)}
             className="border border-gray-300 rounded p-2 w-full text-center"
             required
           />
