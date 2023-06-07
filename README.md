@@ -50,6 +50,12 @@ O retorno deve conter 3 containers ativos `frontend` | `backend` | `mysql`.
 Acesse o container backEnd com o seguinte comando `docker exec -it backend bash`, rode o comando `npm install` para instalar as dependencias e o `npm run dev` para iniciar a Aplicação. A API estará sendo executada na porta 3333, é possível verificar o acesso em uma rota GET `http://localhost:3333` o retorno é um objeto com a message,
 `"message": "API no Ar"`.
 
+Dentro do container, podemos verificar os testes unitários, vide: 
+
+```
+$ npm run test:mocha
+```
+
 ### Acessando o frontend
 
 Acesse o container frontEnd com o seguinte comando `docker exec -it frontend bash`, rode o comando `npm install` para instalar as dependencias e o `npm start` para iniciar a Aplicação. A página do frontend deve ser renderizado no endereço `http://localhost:3000/pets`, sua página inicial renderiza os dados retornados da api.
@@ -86,17 +92,14 @@ Também utilizei o uso do banco de dados Mysql para guardar as informações dos
 
 > Nodemon
 
-## Instruções do Desafio
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: HTML, CSS e JavaScript no front-end e alguma das tecnologias back-end informadas na proposta desse desafio;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
+## Endpoints da aplicação
 
-## Proposta
-Você deverá desenvolver um projeto no padrão MVC utilizando Node.js com a finalidade de que seja possível listar, visualizar, criar, editar e excluir animais de estimação de uma petshop.
-> **Observações:**
-> - Você pode utilizar a estratégia que considerar pertinente para armazenar os registros de sua aplicação;
-> - Cada animal de estimação precisa ter um identificador único, nome, idade, se é gato ou cachorro e sua respectiva raça; Além do nome e telefone para contato de seu dono.
+- Get all pets: /pet/GET http://localhost:3333/pets
 
-## Diferenciais
-Serão considerados diferenciais o uso de qualquer tipo de framework utilizados no front-end (utilizamos ReactJS por aqui) ou no back-end da aplicação.
+> Descrição: Mostra todos os pets do banco de dados
+
+>
+
+```
+$ npm run test:mocha
+```

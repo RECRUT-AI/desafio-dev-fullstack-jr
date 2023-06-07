@@ -10,13 +10,4 @@ const getAll = async () => {
   return dono;
 };
 
-// const getOwnerById = async (id) => {
-//   const [[petId]] = await connection.execute(
-//     'SELECT * FROM recruit_petshop.pet WHERE idpet = ?',
-//     [id],
-//   );
-//   return petId;
-// };
-
-
 module.exports = { getAll };

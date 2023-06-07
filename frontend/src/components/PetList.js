@@ -68,7 +68,7 @@ function PetList() {
       <option value="cachorro">Cachorro</option>
     </select>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      {filterPets().map((pet, index) => (
+      {filterPets().map((pet) => (
         <div 
           className="bg-white rounded-lg shadow-md p-4 mb-4"
           key={pet.idpet}
@@ -78,7 +78,7 @@ function PetList() {
           <p className="text-gray-600">Tipo: {pet.tipo}</p>
           <p className="text-gray-600">Raça: {pet.raca}</p>
           <p className="text-gray-600">Dono ID: {pet.id_dono}</p>
-          <p className="text-gray-600">Para mais informações do dono, clique no botão "Informação dos donos de pets"</p>
+          <p className="text-gray-600">Para mais informações do dono, clique no botão `Informação dos donos de pets`</p>
           <div className="flex justify-center mt-4">
             <button
               onClick={() => handleDeletePet(pet.idpet)}

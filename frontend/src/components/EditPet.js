@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import api from "../../src/utils/api";
