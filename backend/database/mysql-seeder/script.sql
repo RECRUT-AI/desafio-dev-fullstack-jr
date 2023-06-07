@@ -38,8 +38,9 @@ INSERT INTO
   recruit_petshop.pet (nome, idade, tipo, raca, id_dono)
 VALUES
   ("Bethovem", 12, 'Cachorro', 'Golden retriever', 1),
-  ("Rex", 2, 'Cachorro', 'viralata', 1),
+  ("Rex", 2, 'Cachorro', 'Viralata', 1),
   ("Mel", 4, 'Gato', 'Himalaia', 2),
   ("Tesouro", 4, 'Gato', 'Ashera', 4),
+  ("Tafarel", 8, 'Cachorro', 'Viralata', 4),
   ("Billy", 12, 'Gato', 'Ragdoll', 3);
   

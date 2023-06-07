@@ -1,4 +1,13 @@
-const petsMockModel = [
+const correctPetIdMockService = {
+  "idpet": 1,
+  "nome": "Bethovem",
+  "idade": 12,
+  "tipo": "Cachorro",
+  "raca": "Golden retriever",
+  "id_dono": 1
+};
+
+const petsMockService = [
   {
     "idpet": 1,
     "nome": "Bethovem",
@@ -12,7 +21,7 @@ const petsMockModel = [
     "nome": "Rex",
     "idade": 2,
     "tipo": "Cachorro",
-    "raca": "viralata",
+    "raca": "Viralata",
     "id_dono": 1
   },
   {
@@ -33,48 +42,38 @@ const petsMockModel = [
   },
   {
     "idpet": 5,
-    "nome": "Billy",
-    "idade": 12,
-    "tipo": "Gato",
-    "raca": "Ragdoll",
-    "id_dono": 3
-  }
-];
-
-const newPetModel = {
-  "pet": {
-    "nome": "erweewe",
-    "idade": "12",
-    "tipo": "cachorro",
-    "raca": "goldem"
+    "nome": "Tafarel",
+    "idade": 8,
+    "tipo": "Cachorro",
+    "raca": "Viralata",
+    "id_dono": 4
   },
-  "dono": {
-    "nome": "douglas",
-    "telefone": "8198765434"
-  }
-};
-
-const refreshPet = {
-  idpet: 1,
-  nome: 'Martelo do Batman',
-  idade: 12,
-  tipo: 'cachorro',
-  raca: 'viralata'
-};
-
-const addPet = {
+  {
     "idpet": 8,
     "nome": "teste",
     "idade": 12,
     "tipo": "cachorro",
     "raca": "goldem",
     "id_dono": 6
+  }
+];
+
+const refreshPetUpdate = {
+  "idpet": 1,
+  "nome": "Bethovem",
+  "idade": 12,
+  "tipo": "Cachorro",
+  "raca": "Golden retriever",
+  "id_dono": 1
 };
 
+const newProductService = {
+  name: 'computador',
+};
 
 module.exports = {
-  petsMockModel,
-  newPetModel,
-  refreshPet,
-  addPet,
+  correctPetIdMockService,
+  petsMockService,
+  newProductService,
+  refreshPetUpdate,
 };

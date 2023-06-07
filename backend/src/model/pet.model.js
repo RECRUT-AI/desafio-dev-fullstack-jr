@@ -23,6 +23,8 @@ const updatePet = async (idPet, nome, idade, tipo, raca) => {
     [nome, idade, tipo, raca, idPet],
   );
 
+  console.log(petId)
+
   return petId;
 };
 
@@ -32,6 +34,8 @@ const deletePet = async (idPet) => {
     WHERE idpet = ?;`,
     [idPet],
   );
+
+  console.log(petId)
 
   return petId;
 };
