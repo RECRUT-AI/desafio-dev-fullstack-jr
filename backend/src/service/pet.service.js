@@ -11,10 +11,9 @@ const getPetById = async (Id) => {
   return { type: null, message: listId };
 };
 
-const petCriated = async (pet) => {
-  const newPetId = await petModel.petCriated({ pet });
+const petCriated = async (pet, dono) => {
+  const newPetId = await petModel.petCriated(pet, dono);
   const newPet = await petModel.getPetById(newPetId);
-
   return { type: null, message: newPet };
 };
 

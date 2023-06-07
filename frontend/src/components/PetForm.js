@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
-import api from '../utils/api';
 import Context from "../../src/context/context";
+import api from '../utils/api';
 
 const PetForm = () => {
   const { pets, setPets } = useContext(Context);
@@ -29,6 +29,8 @@ const PetForm = () => {
       .then((response) => {
         console.log('Pet criado com sucesso:', response.data);
         // Limpar os campos do formulário
+        console.log(response.data)
+        setPets([...pets, response.data]);
         setName('');
         setAge('');
         setType('');

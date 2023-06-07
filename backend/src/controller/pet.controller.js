@@ -35,8 +35,8 @@ const deletePet = async (req, res) => {
 };
 
 const petCriated = async (req, res) => {
-  const { pet } = req.body;
-  const petCreate = await petService.petCriated(pet);
+  const { pet, dono } = req.body;
+  const petCreate = await petService.petCriated(pet, dono);
   return res.status(201).json(petCreate.message);
 };
 

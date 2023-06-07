@@ -37,21 +37,21 @@ const deletePet = async (idPet) => {
 };
 
 const petCriated = async (pet, dono) => {
-  await connection.execute(
-    `INSERT INTO recruit_petshop.pet 
-    (nome, idade, tipo, raca, id_dono) VALUES(?, ?, ?, ?, ?);`,
-    [pet.nome, pet.idade, pet.tipo, pet.raca, dono.iddono ],
+
+  const [{ insertId }] = await connection.execute(
+    `INSERT INTO recruit_petshop.dono 
+    (nome, telefone) VALUES (?, ?);`,
+    [dono.nome, dono.telefone],
   );
-  
+
   const [result] = await connection.execute(
-    `SELECT product_id AS productId, quantity
-    FROM sales_products WHERE sale_id = ?`,
-    [createId],
+    `INSERT INTO recruit_petshop.pet 
+    (nome, idade, tipo, raca, id_dono) VALUES (?, ?, ?, ?, ?);`,
+    [pet.nome, pet.idade, pet.tipo, pet.raca, insertId],
   );
-  return result;
+
+  return result.insertId;
 };
-
-
 
 module.exports = { 
   getPetById,

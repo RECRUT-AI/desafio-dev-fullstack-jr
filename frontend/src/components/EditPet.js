@@ -53,8 +53,8 @@ const EditPet = () => {
           <label className="block">Nome:</label>
           <input
             type="text"
-            name="name"
-            value={editedPet.name}
+            name="nome"
+            value={editedPet.nome}
             onChange={handleInputChange}
             className="w-full border border-gray-300 rounded px-3 py-2"
           />
@@ -63,28 +63,31 @@ const EditPet = () => {
           <label className="block">Idade:</label>
           <input
             type="text"
-            name="age"
-            value={editedPet.age}
+            name="idade"
+            value={editedPet.idade}
             onChange={handleInputChange}
             className="w-full border border-gray-300 rounded px-3 py-2"
           />
         </div>
         <div className="mb-4">
           <label className="block">Tipo:</label>
-          <input
-            type="text"
-            name="type"
-            value={editedPet.type}
+          <select
+            name="tipo"
+            value={editedPet.tipo}
             onChange={handleInputChange}
             className="w-full border border-gray-300 rounded px-3 py-2"
-          />
+          >
+            <option value="">Selecione</option>
+            <option value="cachorro">Cachorro</option>
+            <option value="gato">Gato</option>
+          </select>
         </div>
         <div className="mb-4">
           <label className="block">Raça:</label>
           <input
             type="text"
-            name="breed"
-            value={editedPet.breed}
+            name="raca"
+            value={editedPet.raca}
             onChange={handleInputChange}
             className="w-full border border-gray-300 rounded px-3 py-2"
           />
@@ -93,8 +96,8 @@ const EditPet = () => {
           <label className="block">Nome do Dono:</label>
           <input
             type="text"
-            name="ownerName"
-            value={editedPet.ownerName}
+            name="dono"
+            value={editedPet.dono}
             onChange={handleInputChange}
             className="w-full border border-gray-300 rounded px-3 py-2"
           />
@@ -103,8 +106,8 @@ const EditPet = () => {
           <label className="block">Telefone do Dono:</label>
           <input
             type="text"
-            name="ownerPhone"
-            value={editedPet.ownerPhone}
+            name="telefone"
+            value={editedPet.telefone}
             onChange={handleInputChange}
             className="w-full border border-gray-300 rounded px-3 py-2"
           />

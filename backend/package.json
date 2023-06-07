@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json .",
     "dev": "nodemon index.js",
-    "test:mocha": "mocha",
+    "test:mocha": "mocha test/**/*.test.js",
     "test:coverage": "nyc mocha",
     "start": "node index.js"
   },

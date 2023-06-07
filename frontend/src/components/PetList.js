@@ -61,39 +61,54 @@ function PetList() {
 
   return (
     <div className='bg-gray-100 py-8'>
-      <h2 className="text-2xl font-bold mb-4">Lista de Animais de Estimação</h2>
-      <select value={filter} onChange={handleFilterChange}>
-        <option value="">Todos</option>
-        <option value="gato">Gato</option>
-        <option value="cachorro">Cachorro</option>
-      </select>
-      {filterPets().map((pet) => (
+    <h2 className="text-2xl font-bold mb-4">Lista de Animais de Estimação</h2>
+    <select value={filter} onChange={handleFilterChange}>
+      <option value="">Todos</option>
+      <option value="gato">Gato</option>
+      <option value="cachorro">Cachorro</option>
+    </select>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {filterPets().map((pet, index) => (
         <div 
-        className="bg-white rounded-lg shadow-md p-4 mb-4"
-        key={pet.idpet}>
+          className="bg-white rounded-lg shadow-md p-4 mb-4"
+          key={pet.idpet}
+        >
           <h3 className="text-lg font-semibold">{pet.nome}</h3>
           <p className="text-gray-600">Idade: {pet.idade}</p>
           <p className="text-gray-600">Tipo: {pet.tipo}</p>
           <p className="text-gray-600">Raça: {pet.raca}</p>
-          <p className="text-gray-600">Dono: {pet.id_dono}</p>
-          <p className="text-gray-600">Contato: {pet.ownerPhone}</p>
-          <button onClick={() => handleDeletePet(pet.idpet)}
-           className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded"
-          >Excluir</button>
-          <button onClick={() => handleEditPet(pet)}
-          className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">Editar</button>
+          <p className="text-gray-600">Dono ID: {pet.id_dono}</p>
+          <p className="text-gray-600">Para mais informações do dono, clique no botão "Informação dos donos de pets"</p>
+          <div className="flex justify-center mt-4">
+            <button
+              onClick={() => handleDeletePet(pet.idpet)}
+              className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded mr-2"
+            >
+              Excluir
+            </button>
+            <button
+              onClick={() => handleEditPet(pet)}
+              className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+            >
+              Editar
+            </button>
+          </div>
         </div>
       ))}
-      <div>
-      <button
-      className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4"
-      onClick={handleGoToOwners}
-    >
-      Informação dos donos de Pets
-    </button>
-        <PetForm />
-      </div>
+      {filterPets().length % 2 === 1 && (
+        <div className="bg-white rounded-lg shadow-md p-4 mb-4"></div>
+      )}
     </div>
+    <div>
+      <button
+        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4"
+        onClick={handleGoToOwners}
+      >
+        Informação dos donos de Pets
+      </button>
+      <PetForm />
+    </div>
+  </div>
   );
 }
 
